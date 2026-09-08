@@ -1,0 +1,9 @@
+.env
+.venv/
+__pycache__/
+data/
+artifacts/
+runs/
+research/tokenizer.json
+research/tokenizer_config.json
+*.log

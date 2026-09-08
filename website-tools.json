@@ -1,0 +1,154 @@
+[
+  {
+    "type": "function",
+    "function": {
+      "name": "calculator",
+      "description": "Perform exact arithmetic calculations and math expressions. Use whenever calculations, percentages, sums, multiplications, or mathematical operations are required.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "expression": {
+            "type": "string",
+            "description": "The mathematical expression to evaluate (e.g., \"(125 * 48) / 100\", \"sqrt(144) + 17\", \"15 * 84\")"
+          }
+        },
+        "required": [
+          "expression"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "get_current_time",
+      "description": "Get the current date, time, day of the week, and timezone. Use when the user asks what time or day it is, or when current temporal context is needed for relative dates, deadlines, or schedules.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "timezone": {
+            "type": "string",
+            "description": "Optional IANA timezone name (e.g., \"America/New_York\", \"Europe/London\", \"Asia/Tokyo\", \"UTC\"). Defaults to the user's local timezone if omitted."
+          }
+        }
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "manage_notes",
+      "description": "Manage personal notes, todos, reminders, and scratchpad items. Supports creating, listing, searching, updating, and deleting persistent notes.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "action": {
+            "type": "string",
+            "enum": [
+              "list",
+              "get",
+              "create",
+              "update",
+              "delete",
+              "search"
+            ],
+            "description": "The action to perform: \"list\" (show all notes), \"get\" (fetch note by id or title), \"create\" (save new note), \"update\" (modify existing note), \"delete\" (remove note), or \"search\" (find notes matching query)."
+          },
+          "title": {
+            "type": "string",
+            "description": "Title of the note (required for create, optional for search/update/get)."
+          },
+          "content": {
+            "type": "string",
+            "description": "Body content of the note (for create or update)."
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique ID of the note (for get, update, or delete)."
+          },
+          "query": {
+            "type": "string",
+            "description": "Search terms for finding notes by title or content (for search action)."
+          },
+          "tags": {
+            "type": "string",
+            "description": "Comma-separated tags for the note (optional)."
+          }
+        },
+        "required": [
+          "action"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "run_code",
+      "description": "Execute JavaScript or Python code in a safe in-browser sandbox and view standard output (console.log / print), return values, and execution timings. Ideal for data processing, math algorithms, string parsing, sorting, formatting, or testing snippets.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "language": {
+            "type": "string",
+            "enum": [
+              "javascript",
+              "python"
+            ],
+            "description": "Programming language to execute: \"javascript\" or \"python\"."
+          },
+          "code": {
+            "type": "string",
+            "description": "The code snippet or script to execute."
+          }
+        },
+        "required": [
+          "language",
+          "code"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "web_search",
+      "description": "Search the web and encyclopedic sources for current facts, explanations, scientific discoveries, people, historical events, technology documentation, and definitions without needing an API key.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string",
+            "description": "The search query or terms to look up."
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    }
+  },
+  {
+    "type": "function",
+    "function": {
+      "name": "fetch_webpage",
+      "description": "Fetch and extract the readable text content, title, and key information from any webpage URL. Ideal for following up on search results, reading articles, documentation, or encyclopedic entries.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "url": {
+            "type": "string",
+            "description": "The HTTP or HTTPS URL of the webpage to retrieve."
+          },
+          "max_length": {
+            "type": "number",
+            "description": "Optional maximum number of characters of extracted content to return (default: 4000, max: 20000)."
+          }
+        },
+        "required": [
+          "url"
+        ]
+      }
+    }
+  }
+]
