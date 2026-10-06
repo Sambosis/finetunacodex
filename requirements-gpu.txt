@@ -1,11 +1,11 @@
 # Compatible intersection of Unsloth and Unsloth Zoo package metadata, 2026-09-07.
 unsloth==2026.9.2
 unsloth_zoo==2026.9.1
-torch==2.9.1
+torch==2.13.0
 torchvision==0.24.1
 xformers==0.0.33.post2
 torchao==0.15.0
-transformers==5.5.0
+transformers==5.10.1
 tokenizers==0.22.2
 peft==0.20.0
 trl==0.24.0
